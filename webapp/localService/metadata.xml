@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="SEAL_OUT_FIO_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Job" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Jobnumber"/>
+                    <PropertyRef Name="Jobtype"/>
+                    <PropertyRef Name="Jobversion"/>
+                </Key>
+                <Property Name="OutputFlag" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Output" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Jobnumber" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Job Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Jobtype" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Job Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Jobversion" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Job version" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Jobowner" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Owner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Jobstatus" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Job Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Authoritygroup" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="AuthorizGroup" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ObjNotExist" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Msg DIR not exist" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ObjNotReleased" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="DIR not released" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ObjNoPrnData" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="No printable orig." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ObjProcessing" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Processing" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Costcenter" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Cost Center" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreateDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Creation Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreateTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Creation Time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreateUser" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Created by" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangeDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Modification Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangeTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Modification Time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangeUser" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Modified by" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProcessDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Output Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProcessTime" Type="Edm.Time" Precision="0" sap:unicode="false" sap:label="Output Time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProcessUser" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Output by" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Guid" Type="Edm.Guid" sap:unicode="false" sap:label="Unique ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="SEAL_OUT_FIO_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="JobSet" EntityType="SEAL_OUT_FIO_SRV.Job" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="http://x74:9443/sap/opu/odata/seal/OUT_FIO_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://x74:9443/sap/opu/odata/seal/OUT_FIO_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,11 @@
+<mvc:View
+	controllerName="de.sealsystems.sap.ddc.controller.App"
+    width="100%"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	<App
+		id="app"
+        width="100%"
+		/>
+</mvc:View>

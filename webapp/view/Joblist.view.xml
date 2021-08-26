@@ -1,0 +1,147 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core"
+  xmlns:table="sap.ui.table"
+  xmlns="sap.m"
+  xmlns:layout="sap.ui.layout"
+  xmlns:semantic="sap.f.semantic"
+  xmlns:fb="sap.ui.comp.filterbar" height="100%" controllerName="de.sealsystems.sap.ddc.controller.Joblist">
+
+  <semantic:SemanticPage id="idDynPage" headerPinnable="true" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false" titleAreaShrinkRatio="1:1.6:1.6" showFooter="true">
+
+    <!-- Title Heading-->
+    <semantic:titleHeading>
+      <Title text="{i18n>JobListTitle}"/>
+    </semantic:titleHeading>
+
+    <!-- Header Content -->
+    <semantic:headerContent>
+      <fb:FilterBar id="idFilterBar" reset="onReset" search="onSearch" useToolbar="false" showGoOnFB="false" showClearOnFB="true" clear="onClear">
+        <fb:filterGroupItems>
+          <fb:FilterGroupItem visibleInFilterBar="true" groupName="G1" groupTitle="Group1" name="GI1" label="{i18n>JobNumberFilterLabel}" labelTooltip="{i18n>JobNumberFilterTooltip}">
+            <fb:control>
+              <Input id="idJobNumber" type="Text" submit="onJobNumberSubmit">
+              </Input>
+            </fb:control>
+          </fb:FilterGroupItem>
+         </fb:filterGroupItems>
+      </fb:FilterBar>
+    </semantic:headerContent>
+
+    <!-- Job list table -->
+    <semantic:content>
+      <table:Table id="idJobTable" rows="{path: '/JobSet', events: {change: '.onChange'}}" enableSelectAll="true" selectionMode="MultiToggle" busyIndicatorDelay="{JoblistView>/delay}" enableBusyIndicator="true" showNoData="true" width="auto" visibleRowCountMode="Auto" noData="{i18n>table-NoDataText}" showColumnVisibilityMenu="true">
+
+        <table:extension>
+          <OverflowToolbar>
+            <Title id="idTableHeader" text="{JoblistView>/tableTitle}" level="H2"/>
+            <ToolbarSpacer />
+            <OverflowToolbarButton tooltip="Sort" icon="sap-icon://sort" />
+            <OverflowToolbarButton tooltip="Filter" icon="sap-icon://filter" />
+            <OverflowToolbarButton tooltip="Group" icon="sap-icon://group-2" />
+            <OverflowToolbarButton tooltip="Settings" icon="sap-icon://action-settings" />
+          </OverflowToolbar>
+        </table:extension>
+           <table:columns>
+          <table:Column autoResizable="true" sortProperty="Jobnumber" id="jobNumber"  width="5em">
+            <Label text="{i18n>table-jobNumberTitle}" id="jobNumberTitle"/>
+            <table:template>
+              <Text maxLines="1" text="{Jobnumber}"/>
+            </table:template>
+          </table:Column>
+          <table:Column autoResizable="true" sortProperty="Jobtype" id="jobType" width="5em">
+            <Label text="{i18n>table-jobTypeTitle}" id="jobTypeTitle"/>
+            <table:template>
+              <Text maxLines="1" text="{Jobtype}"/>
+            </table:template>
+          </table:Column>
+          <table:Column autoResizable="true" sortProperty="Jobversion" id="jobVersion" width="5em">
+            <Label text="{i18n>table-jobVersionTitle}" id="jobVersionTitle"/>
+            <table:template>
+              <Text maxLines="1" text="{Jobversion}"/>
+            </table:template>
+          </table:Column>
+          <table:Column autoResizable="true" sortProperty="Jobstatus" id="jobStatus" width="5em">
+            <Label text="{i18n>table-jobStatusTitle}" id="jobStatusTitle"/>
+            <table:template>
+              <Text maxLines="1" text="{Jobstatus}"/>
+            </table:template>
+          </table:Column>
+          <table:Column autoResizable="true" sortProperty="StatusDescr" id="jobStatusDescription" width="18em">
+            <Label text="{i18n>table-jobStatusDescriptionTitle}" id="jobStatusDescriptionTitle"/>
+            <table:template>
+              <Text maxLines="1" text="{StatusDescr}"/>
+            </table:template>
+          </table:Column>
+          <table:Column autoResizable="true" sortProperty="Description" id="jobDescription" width="25em">
+            <Label text="{i18n>table-jobDescriptionTitle}" id="jobDescriptionTitle" width="auto"/>
+            <table:template>
+              <Text maxLines="1" text="{Description}"/>
+            </table:template>
+          </table:Column>
+          <table:Column autoResizable="true" sortProperty="Jobowner" id="jobOwner" width="5em">
+            <Label text="{i18n>table-jobOwnerTitle}" id="jobOwnerTitle"/>
+            <table:template>
+              <Text maxLines="1" text="{Jobowner}"/>
+            </table:template>
+          </table:Column>
+          <table:Column autoResizable="true" sortProperty="CreateDate" id="jobCreationDate" width="7em">
+            <Label text="{i18n>table-jobCreationDateTitle}" id="jobCreationDateTitle"/>
+            <table:template>
+              <Text maxLines="1" text="{path: 'CreateDate', type: 'sap.ui.model.type.Date'}"/>
+            </table:template>
+          </table:Column>
+          <table:Column autoResizable="true" sortProperty="CreateUser" id="jobCreateBy" width="7em">
+            <Label text="{i18n>table-jobCreateByTitle}" id="jobCreateByTitle"/>
+            <table:template>
+              <Text maxLines="1" text="{CreateUser}"/>
+            </table:template>
+          </table:Column>
+          <table:Column autoResizable="true" sortProperty="ChangeDate" id="jobChangeDate" width="7em">
+            <Label text="{i18n>table-jobChangeDateTitle}" id="jobChangeDateTitle"/>
+            <table:template>
+              <Text maxLines="1" text="{path: 'ChangeDate', type: 'sap.ui.model.type.Date'}"/>
+            </table:template>
+          </table:Column>
+          <table:Column autoResizable="true" sortProperty="ChangeUser" id="jobChangeBy" width="7em">
+            <Label text="{i18n>table-jobChangeByTitle}" id="jobChangeByTitle"/>
+            <table:template>
+              <Text maxLines="1" text="{ChangeUser}"/>
+            </table:template>
+          </table:Column>
+          <table:Column autoResizable="true" sortProperty="ProcessDate" id="jobProcessDate" width="7em">
+            <Label text="{i18n>table-jobProcessDateTitle}" id="jobProcessDateTitle"/>
+            <table:template>
+              <Text maxLines="1" text="{path: 'ProcessDate', type: 'sap.ui.model.type.Date'}"/>
+            </table:template>
+          </table:Column>
+          <table:Column autoResizable="true" sortProperty="ProcessUser" id="jobProcessUser" width="7em">
+            <Label text="{i18n>table-jobProcessUserTitle}" id="jobProcessUserTitle"/>
+            <table:template>
+              <Text maxLines="1" text="{ProcessUser}"/>
+            </table:template>
+          </table:Column>
+          <table:Column autoResizable="true" sortProperty="Objnum" id="objectsQty" hAlign="End" width="5em">
+            <Label text="{i18n>table-objectsQtyTitle}" id="objectsQtyTitle"/>
+            <table:template>
+              <ObjectNumber unit="{Objnum}"/>
+            </table:template>
+          </table:Column>
+        </table:columns>
+
+      </table:Table>
+    </semantic:content>
+
+    <!-- Custom Footer Content 
+    <semantic:footerCustomActions>
+    <Button id="messagePopoverBtn"
+      icon="{ path: '/', formatter: '.buttonIconFormatter' }"
+      type="{ path: '/', formatter: '.buttonTypeFormatter' }"
+      text="{path: '/', formatter: '.highestSeverityMessages' }"
+      press=".onMessagesButtonPress"/>
+    <Button text="Print" icon="sap-icon://print" id="idPrnJob" press="onPrintButtonPress" />
+    <Button text="Refresh" icon="sap-icon://refresh" id="idRfrJob" press="onRefreshButtonPress" />
+  </semantic:footerCustomActions>-->
+
+  </semantic:SemanticPage>
+
+</mvc:View>
