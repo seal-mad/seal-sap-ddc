@@ -378,7 +378,7 @@ sap.ui.define([
     exitDetailView: function() {
       this._MessageManager.removeAllMessages();
       history.go(-1);
-      this.byId("idItemsList").clearSelection();
+     // this.byId("idItemsList").clearSelection();
       this.prepareView();
     },
 

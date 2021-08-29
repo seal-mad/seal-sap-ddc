@@ -29,13 +29,41 @@ sap.ui.define([], function () {
     },
 
     // Icon formatting in the detail view (header)
-    icon: function (sStatus) {
+    iconStatus: function (sStatus) {
       if (sStatus === "PE" || sStatus === "OE") {
         return "sap-icon://message-error";
       } else if (sStatus === "PS") {
         return "sap-icon://message-success";
       } else if (sStatus === "PR") {
         return "sap-icon://message-warning";
+      } 
+       return "";
+    },
+
+        // Icon formatting in the detail view (header)
+    iconObject: function (sObjectType) {
+      if (sObjectType === "@AR@" ) {
+        return "./Images/s_b_docu.gif";
+      } else if (sObjectType === "@HJ@") {
+        return "./Images/s_readfi.gif";
+      } else if (sObjectType === "@4W@") {
+        return "./Images/s_b_bnbo.gif";
+      } else if (sObjectType === "@FM@") {
+        return "./Images/s_attach.gif";
+      } else if (sObjectType === "@0K@") {
+        return "./Images/s_b_nocr.gif";
+      } else if (sObjectType === "@4I@") {
+        return "./Images/s_b_plev.gif";
+      } else if (sObjectType === "@IT@") {
+        return "./Images/s_x__pdf.gif";
+       } else if (sObjectType === "@J7@") {
+        return "./Images/s_x__doc.gif";  
+       } else if (sObjectType === "@0P@") {
+        return "./Images/s_b_txdp.gif";
+       } else if (sObjectType === "@J2@") {
+        return "./Images/s_x__xls.gif";
+       } else if (sObjectType === "@QE@") {
+        return "./Images/s_lnkdoc.gif";
       }
        return "";
     },
