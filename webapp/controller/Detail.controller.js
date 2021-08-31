@@ -41,8 +41,8 @@ sap.ui.define([
       var oViewModel,
         oPage = this.byId("ObjectPageLayout"),
         iOriginalBusyDelay = oPage.getBusyIndicatorDelay(),
-       // oTable = this.byId("idItemsList"),
-       // iOriginalBusyItemsDelay = oTable.getBusyIndicatorDelay();
+        oTable = this.byId("idItemsList"),
+        iOriginalBusyItemsDelay = oTable.getBusyIndicatorDelay();
 
       oViewModel = new JSONModel({
         busy: true,
@@ -50,6 +50,7 @@ sap.ui.define([
         itemsBusy: true,
         itemsDelay: 0,
         itemsTitle: this.getResourceBundle().getText("itemsTitle"),
+        paramTitle: this.getResourceBundle().getText("paramTitle"),
         editMode: false,
         displayMode: true
       });
@@ -68,9 +69,9 @@ sap.ui.define([
       oPage.attachEventOnce("updateFinished", function() {
         oViewModel.setProperty("/delay", iOriginalBusyDelay);
       });
-      //oTable.attachEventOnce("updateFinished", function() {
-      //  oViewModel.setProperty("/itemsDelay", iOriginalBusyItemsDelay);
-      // });
+       oTable.attachEventOnce("updateFinished", function() {
+        oViewModel.setProperty("/itemsDelay", iOriginalBusyItemsDelay);
+       });
 
       this.prepareView();
     },
@@ -258,28 +259,10 @@ sap.ui.define([
       oViewModel.setProperty("/busy", false);
     },
 
-
-    onListUpdateFinished: function(oEvent) {
-    /*  var sTitle,
-        iTotalItems = oEvent.getParameter("total"),
-        oViewModel = this.getModel("detailView");
-
-      // only update the counter if the length is final
-      if (this.byId("idItemsList").getBinding("rows").isLengthFinal()) {
-        if (iTotalItems) {
-          sTitle = this.getResourceBundle().getText("itemsTitleCnt", [iTotalItems]);
-        } else {
-          //Display 'Line Items' instead of 'Line items (0)'
-          sTitle = this.getResourceBundle().getText("itemsTitle");
-        }
-        oViewModel.setProperty("/itemsTitle", sTitle);
-      }*/
-    },
-
-    onChange: function(event) {
-    /*  var newCount = event.getSource().getLength();
-      var sTitle = this.getResourceBundle().getText("itemsTitleCnt", newCount);
-      this.getView().getModel("detailView").setProperty("/itemsTitle", sTitle);*/
+    onParamChange: function(event) {
+      var newCount = event.getSource().getLength();
+      var sTitle = this.getResourceBundle().getText("paramTitleCnt", newCount);
+      this.getView().getModel("detailView").setProperty("/paramTitle", sTitle);
     },
 
     onSavePress: function() {
@@ -378,7 +361,7 @@ sap.ui.define([
     exitDetailView: function() {
       this._MessageManager.removeAllMessages();
       history.go(-1);
-     // this.byId("idItemsList").clearSelection();
+      this.byId("idItemsList").clearSelection();
       this.prepareView();
     },
 

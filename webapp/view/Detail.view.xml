@@ -1,73 +1,71 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
-  xmlns="sap.uxap"
-  xmlns:ui="sap.ui.table"
-  xmlns:layout="sap.ui.layout"
-  xmlns:m="sap.m"
-  xmlns:semantic="sap.f.semantic"
-  xmlns:vk="sap.ui.vk" controllerName="de.sealsystems.sap.ddc.controller.Detail" height="100%">
-  <m:Page showNavButton="true" navButtonPress="onCancelPress">
+    xmlns="sap.uxap"
+    xmlns:ui="sap.ui.table"
+    xmlns:uil="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+    xmlns:m="sap.m"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:vk="sap.ui.vk" controllerName="de.sealsystems.sap.ddc.controller.Detail" height="100%">
+    <m:Page showNavButton="true" navButtonPress="onCancelPress">
 
-    <ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false" showFooter="true" busyIndicatorDelay="{detailView>/delay}" busy="{detailView>/busy}">
-      <!-- Title Heading-->
-      <headerTitle>
-        <ObjectPageDynamicHeaderTitle>
-          <expandedHeading>
-            <m:Title class="sapUiTinyMarginBegin sapUiSmallMarginTop" text="{Description}" wrapping="true"/>
-          </expandedHeading>
-          <snappedHeading>
-            <m:Title class="sapUiTinyMarginBegin sapUiSmallMarginTop" text="{Description}" wrapping="true"/>
-          </snappedHeading>
-          <expandedContent>
-          <layout:HorizontalLayout>
-            <m:Text class="sapUiTinyMarginBegin  sapUiTinyMarginTop" text="{i18n>headerStatusLabel}:"/>
-            <m:ObjectStatus class="sapUiTinyMarginBegin sapUiTinyMarginTop" text="{StatusDescr}" state="{path:'Jobstatus', formatter:'.formatter.status'}"  icon="{path:'Jobstatus', formatter:'.formatter.iconStatus'}"/>
-          </layout:HorizontalLayout>
-          </expandedContent>
-          <snappedContent>
-            <m:Text class="sapUiTinyMarginBegin  sapUiTinyMarginTop" text="{i18n>headerStatusLabel}:"/>
-            <m:ObjectStatus class="sapUiTinyMarginBegin sapUiTinyMarginTop" text="{StatusDescr}" state="{path:'Jobstatus', formatter:'.formatter.status'}"  icon="{path:'Jobstatus', formatter:'.formatter.iconStatus'}"/> 
-          </snappedContent>
-        </ObjectPageDynamicHeaderTitle>
-      </headerTitle>
+        <ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false" showFooter="true" busyIndicatorDelay="{detailView>/delay}" busy="{detailView>/busy}">
+            <!-- Title Heading-->
+            <headerTitle>
+                <ObjectPageDynamicHeaderTitle>
+                    <expandedHeading>
+                        <m:Title class="sapUiTinyMarginBegin sapUiSmallMarginTop" text="{Description}" wrapping="true"/>
+                    </expandedHeading>
+                    <snappedHeading>
+                        <m:Title class="sapUiTinyMarginBegin sapUiSmallMarginTop" text="{Description}" wrapping="true"/>
+                    </snappedHeading>
+                    <expandedContent>
+                        <layout:HorizontalLayout>
+                            <m:Text class="sapUiTinyMarginBegin  sapUiTinyMarginTop" text="{i18n>headerStatusLabel}:"/>
+                            <m:ObjectStatus class="sapUiTinyMarginBegin sapUiTinyMarginTop" text="{StatusDescr}" state="{path:'Jobstatus', formatter:'.formatter.status'}" icon="{path:'Jobstatus', formatter:'.formatter.iconStatus'}"/>
+                        </layout:HorizontalLayout>
+                    </expandedContent>
+                    <snappedContent>
+                        <m:Text class="sapUiTinyMarginBegin  sapUiTinyMarginTop" text="{i18n>headerStatusLabel}:"/>
+                        <m:ObjectStatus class="sapUiTinyMarginBegin sapUiTinyMarginTop" text="{StatusDescr}" state="{path:'Jobstatus', formatter:'.formatter.status'}" icon="{path:'Jobstatus', formatter:'.formatter.iconStatus'}"/>
+                    </snappedContent>
+                </ObjectPageDynamicHeaderTitle>
+            </headerTitle>
 
-      <!-- Header Content -->
-      <headerContent>
-        <layout:VerticalLayout class="sapUiTinyMarginBegin sapUiLargeMarginEnd">          
-          <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerJobNumberLabel}" text="{Jobnumber}"  />
-          <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerJobTypeLabel}" text="{Jobtype}"/>
-          <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerJobVersionLabel}" text="{Jobversion}"/>
-        </layout:VerticalLayout>
+            <!-- Header Content -->
+            <headerContent>
+                <layout:VerticalLayout class="sapUiTinyMarginBegin sapUiLargeMarginEnd">
+                    <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerJobNumberLabel}" text="{Jobnumber}" />
+                    <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerJobTypeLabel}" text="{Jobtype}"/>
+                    <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerJobVersionLabel}" text="{Jobversion}"/>
+                </layout:VerticalLayout>
 
-        <layout:VerticalLayout class="sapUiNoMarginBegin sapUiLargeMarginEnd">
-          <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerCreateOnLabel}" text=" { path: 'CreateDate',  type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}
+                <layout:VerticalLayout class="sapUiNoMarginBegin sapUiLargeMarginEnd">
+                    <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerCreateOnLabel}" text=" { path: 'CreateDate',  type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}
                                                                { path: 'CreateTime', 	type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'short' }}" />
-          <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerCreateByLabel}" text="{CreateUser}" />   
-        </layout:VerticalLayout>
+                    <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerCreateByLabel}" text="{CreateUser}" />
+                </layout:VerticalLayout>
 
-       <layout:VerticalLayout class="sapUiNoMarginBegin sapUiLargeMarginEnd">
-           <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerOutputOnLabel}" text=" { path: 'ProcessDate',  type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}
+                <layout:VerticalLayout class="sapUiNoMarginBegin sapUiLargeMarginEnd">
+                    <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerOutputOnLabel}" text=" { path: 'ProcessDate',  type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}
                                                         { path: 'ProcessTime', formatter:'.formatter.time', type: 'sap.ui.model.odata.type.Time', formatOptions: { style: 'short' }}" />
-          <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerOutputByLabel}" text="{ProcessUser}" />
-        </layout:VerticalLayout>
+                    <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerOutputByLabel}" text="{ProcessUser}" />
+                </layout:VerticalLayout>
 
-        <layout:VerticalLayout class="sapUiNoMarginBegin sapUiLargeMarginEnd">
-          <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerObjectsLabel}" text="{Objnum}" />
-          <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerUserLabel}" text="{Jobowner}" />
-        </layout:VerticalLayout>
-      </headerContent>
+                <layout:VerticalLayout class="sapUiNoMarginBegin sapUiLargeMarginEnd">
+                    <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerObjectsLabel}" text="{Objnum}" />
+                    <m:ObjectStatus class="sapUiTinyMarginBottom" title="{i18n>headerUserLabel}" text="{Jobowner}" />
+                </layout:VerticalLayout>
+            </headerContent>
 
-      <!-- Section Output Data -->
-      <sections>
-        <ObjectPageSection titleUppercase="false" title="{i18n>tabObjectsList}">
-          <subSections>
-            <ObjectPageSubSection>
-        <m:FlexBox>
-           <ui:TreeTable id="idItemsList2"  selectionMode="MultiToggle"  enableColumnReordering="false" 
-                          enableSelectAll="true" busyIndicatorDelay="{detailView>/itemsDelay}" showNoData = "true"
-                           busy="{detailView>/itemsBusy}" enableBusyIndicator="true" ariaLabelledBy="title" 
-                           showColumnVisibilityMenu="true"  threshold="30" visibleRowCount="30" class="sapUiNoContentPadding" 
-                           width="1200px" 
-                                      rows="{
+            <!-- Section Output Data -->
+            <sections>
+                <ObjectPageSection titleUppercase="false" title="{i18n>tabObjectsList}">
+                    <subSections>
+                        <ObjectPageSubSection>
+                            <m:FlexBox id="flexBoxObjects" width="100%" alignItems="Start" alignContent="Stretch" >
+                                <ui:TreeTable id="idItemsList" selectionMode="MultiToggle" enableColumnReordering="false" enableSelectAll="true" busyIndicatorDelay="{detailView>/itemsDelay}" 
+                                showNoData = "true" busy="{detailView>/itemsBusy}" enableBusyIndicator="true" ariaLabelledBy="title" showColumnVisibilityMenu="true" threshold="25" visibleRowCount="25" 
+                                width="100%" rows="{
                                         path: 'ObjectSet',
                                          parameters: {
                                               numberOfExpandedLevels: 0,
@@ -79,109 +77,114 @@
                                                                     hierarchyParentNodeFor: 'PosRelParent',
                                                                     hierarchyDrillStateFor: 'PosDrill'
                                                           }
-                                                      } 
-                                                  }" >  
+                                                      }
+                                                  }">
+                                    <ui:extension>
+                                        <m:OverflowToolbar height="2.5em">
+                                            <m:Title id="lineItemsTitle" text="{detailView>/itemsTitle}" titleStyle="Auto" level="H2"/>
+                                            <m:ToolbarSpacer />
+                                            <m:Button id="idSelBtn" tooltip="{i18n>itemsSelOutputBtn}" icon="sap-icon://multiselect-all" type="Ghost" press="onSelectPress" enabled="{detailView>/editMode}"/>
+                                            <m:Button id="idDeselBtn" tooltip="{i18n>itemsDeselOutputBtn}" icon="sap-icon://multiselect-none" type="Ghost" press="onDeselectPress" enabled="{detailView>/editMode}" />
+                                            <m:Button text="{i18n>itemsAddNewBtn}" type="Ghost" enabled="{detailView>/editMode}" />
+                                            <m:Button tooltip="{i18n>itemsClearFilterBtn}" icon="sap-icon://clear-filter" type="Ghost" press="onClearFilterPress" />
+                                            <m:OverflowToolbarButton tooltip="Settings" icon="sap-icon://action-settings" />
+                                        </m:OverflowToolbar>
+                                    </ui:extension>
+                                    <ui:columns >
+                                        <ui:Column sortProperty="Objkey" filterProperty="Objkey" autoResizable="true" width="30%" >
+                                            <m:Label text="{i18n>itemsDocumentKeyLabel}" />
+                                            <ui:template>
+                                                <m:ObjectStatus text="{Objkey}" icon="{path:'IconName', formatter:'.formatter.iconObject'}"/>
+                                            </ui:template>
+                                        </ui:Column>
 
-                 <ui:extension>
-                  <m:OverflowToolbar height="2.5em">       
-                    <m:ToolbarSpacer />
-                    <m:Button id="idSelBtn" tooltip="{i18n>itemsSelOutputBtn}" icon="sap-icon://multiselect-all" type="Ghost" press="onSelectPress" enabled="{detailView>/editMode}"/>
-                    <m:Button id="idDeselBtn" tooltip="{i18n>itemsDeselOutputBtn}" icon="sap-icon://multiselect-none" type="Ghost" press="onDeselectPress" enabled="{detailView>/editMode}" />
-                    <m:Button text="{i18n>itemsAddNewBtn}" type="Ghost" enabled="{detailView>/editMode}" />
-                    <m:Button tooltip="{i18n>itemsClearFilterBtn}" icon="sap-icon://clear-filter" type="Ghost" press="onClearFilterPress" />
-                    <m:OverflowToolbarButton tooltip="Settings" icon="sap-icon://action-settings" />
-                  </m:OverflowToolbar>
-                </ui:extension>
+                                        <ui:Column sortProperty="OutputFlag" hAlign="Center" width="5%">
+                                            <m:Label text="{i18n>itemsOutputLabel}" />
+                                            <ui:template>
+                                                <m:CheckBox name="OutputFlag" selected="{OutputFlag}" editable="{detailView>/editMode}" />
+                                            </ui:template>
+                                        </ui:Column>
 
-                <ui:columns >
-                  <ui:Column sortProperty="Objkey" filterProperty="Objkey" autoResizable="true" width="35%">
-                    <m:Label text="{i18n>itemsDocumentKeyLabel}" />
-                    <ui:template>
-                       <!-- <m:Text text="{Objkey}" wrapping="false" />  -->
-                       <m:ObjectStatus text="{Objkey}"   icon="{path:'IconName', formatter:'.formatter.iconObject'}"/>           
-                         </ui:template>
-                  </ui:Column>
-                  
-                  <ui:Column sortProperty="OutputFlag" hAlign="Center" width="5%" >
-                    <m:Label text="{i18n>itemsOutputLabel}" />
-                    <ui:template>
-                      <m:CheckBox name="OutputFlag" selected="{OutputFlag}" editable="{detailView>/editMode}"  />
-                    </ui:template>
-                  </ui:Column>
+                                        <ui:Column autoResizable="true" width="15%">
+                                            <m:Label text="{i18n>itemsStatusLabel}" />
+                                            <ui:template>
+                                                <m:Text text="{StatusDescr}" wrapping="false" />
+                                            </ui:template>
+                                        </ui:Column>
 
-                  <ui:Column autoResizable="true" width="20%"   >
-                    <m:Label text="{i18n>itemsStatusLabel}" />
-                    <ui:template>
-                      <m:Text text="{StatusDescr}" wrapping="false" />
-                    </ui:template>
-                  </ui:Column>
+                                        <ui:Column autoResizable="true" width="15%" >
+                                            <m:Label text="{i18n>itemsDocumentDescrLabel}" />
+                                            <ui:template>
+                                                <m:Text text="{ObjDescr}" wrapping="false" />
+                                            </ui:template>
+                                        </ui:Column>
 
-                  <ui:Column autoResizable="true"  width="20%"  >
-                    <m:Label text="{i18n>itemsDocumentDescrLabel}" />
-                    <ui:template>
-                      <m:Text text="{ObjDescr}" wrapping="false" />
-                    </ui:template>
-                  </ui:Column>
+                                        <ui:Column autoResizable="true" width="10%">
+                                            <m:Label text="{i18n>itemsNoPrintDataLabel}" />
+                                            <ui:template>
+                                                <m:Text text="{NoPrintData}" wrapping="false" />
+                                            </ui:template>
+                                        </ui:Column>
 
-                  <ui:Column autoResizable="true"  width="10%"  >
-                    <m:Label text="{i18n>itemsNoPrintDataLabel}" />
-                    <ui:template>
-                      <m:Text text="{NoPrintData}" wrapping="false" />
-                    </ui:template>
-                  </ui:Column>
+                                        <ui:Column autoResizable="true"  width="10%">
+                                            <m:Label text="{i18n>itemsNoPrintSelLabel}" />
+                                            <ui:template>
+                                                <m:Text text="{NoPrintSel}" wrapping="false" />
+                                            </ui:template>
+                                        </ui:Column>
+                                    </ui:columns>
 
-                  <ui:Column autoResizable="true"  width="10%" >
-                    <m:Label text="{i18n>itemsNoPrintSelLabel}" />
-                    <ui:template>
-                      <m:Text text="{NoPrintSel}" wrapping="false" />
-                    </ui:template>
-                  </ui:Column>
+                                </ui:TreeTable>
+                            </m:FlexBox>
+                            <m:FlexBox id="flexBoxParameter" width="100%" alignItems="Start" alignContent="Stretch" >
+                                <ui:Table id="idParameterList" width="100%" selectionMode="None" busyIndicatorDelay="{detailView>/itemsDelay}" 
+                                rows="{path: 'ParameterSet', events: {change: '.onParamChange'} }" threshold="25" visibleRowCount="25"
+                                showNoData = "true" busy="{detailView>/itemsBusy}" enableBusyIndicator="true" ariaLabelledBy="title" showColumnVisibilityMenu="true" >
+                                    <ui:extension>
+                                        <m:OverflowToolbar height="2.5em">
+                                            <m:Title id="linePatemeterTitle" text="{detailView>/paramTitle}" titleStyle="Auto" level="H2"/>
+                                            <m:ToolbarSpacer />
+                                            <m:OverflowToolbarButton tooltip="Settings" icon="sap-icon://action-settings" />
+                                        </m:OverflowToolbar>
+                                    </ui:extension>
+                                    <ui:columns >
+                                        <ui:Column sortProperty="ParamDescr" filterProperty="ParamDescr" autoResizable="true" width="30%">
+                                            <m:Label text="{i18n>paramIDLabel}" />
+                                            <ui:template>
+                                                <m:Text text="{ParamDescr}" wrapping="false" />
+                                            </ui:template>
+                                        </ui:Column>
 
+                                        <ui:Column autoResizable="true"  width="70%">
+                                            <m:Label text="{i18n>paramValueLabel}" />
+                                            <ui:template>
+                                              <!--  <m:Text text="{ path: 'Value' }" 
+                                                wrapping="false" />-->
+                                                 <m:Input id="paramValue" value="{Value}" showValueHelp="true"  type="Text" valueHelpRequest="onParamValueHelpRequest" submit="onParamValueSubmit"/>
+                                            </ui:template>
+                                        </ui:Column>
+                                    </ui:columns>
+                                </ui:Table>
+                            </m:FlexBox>
+                        </ObjectPageSubSection>
+                    </subSections>
+                </ObjectPageSection>
+            </sections>
 
-               </ui:columns>
-             </ui:TreeTable> 
-              <ui:Table id="idItemsList1" selectionMode="MultiToggle" width="600px"  enableSelectAll="true" busyIndicatorDelay="{detailView>/itemsDelay}" 
-                           rows="{path: 'ObjectSet',
-                            events: {change: '.onChange'} }" threshold="30" visibleRowCount="30"
-                            showNoData = "true" busy="{detailView>/itemsBusy}" enableBusyIndicator="true" ariaLabelledBy="title" 
-                            showColumnVisibilityMenu="true" class="sapUiSmallMarginBegin"   >
-                             <ui:extension>
-                  <m:OverflowToolbar height="2.5em">       
-                    <m:ToolbarSpacer />  
-                    <m:OverflowToolbarButton tooltip="Settings" icon="sap-icon://action-settings" />
-                  </m:OverflowToolbar>
-                </ui:extension>
-                       <ui:columns >
-                  <ui:Column sortProperty="Objkey" filterProperty="Objkey" autoResizable="true">
-                    <m:Label text="{i18n>itemsDocumentKeyLabel}" />
-                    <ui:template>
-                      <m:Text text="{Objkey}" wrapping="false" />
-                    </ui:template>
-                  </ui:Column>
-                   </ui:columns>
-             </ui:Table> 
-
-              </m:FlexBox>
-
-            </ObjectPageSubSection>
-          </subSections>
-        </ObjectPageSection>
-      </sections>
-
-      <!-- Footer -->
-      <footer>
-        <m:OverflowToolbar id="idFooter">
-          <m:Button id="idMessageBtn" visible="{=!!${message>/}.length}" icon="{ path: '/', formatter: '.buttonIconFormatter' }" type="{ path: '/', formatter: '.buttonTypeFormatter' }" text= "{path: '/', formatter: '.highestSeverityMessages' }" press="onMessagePopoverPress" />
-          <m:ToolbarSpacer/>
-          <m:Button text="{i18n>footerDeleteBtn}" icon="sap-icon://delete" type="Ghost" press="onDeletePress"/>
-          <m:Button text="{i18n>footerRefreshBtn}" icon="sap-icon://refresh" type="Ghost"/>
-          <m:Button id="idEditBtn" text="{i18n>footerEditBtn}" icon="sap-icon://edit" type="Ghost" press="onEditPress" enabled="{detailView>/displayMode}"/>
-          <m:Button id="idSaveBtn" text="{i18n>footerSaveBtn}" icon="sap-icon://save" type="Emphasized" press="onSavePress" enabled="{detailView>/editMode}"/>
-          <m:Button text="{i18n>footerDistributeBtn}" icon="sap-icon://print" type="Emphasized"/>
-          <m:Button text="{i18n>footerCancelBtn}" press=".onCancelPress"/>
-        </m:OverflowToolbar>
-      </footer>
-    </ObjectPageLayout>
-  </m:Page>
+            <!-- Footer -->
+            <footer>
+                <m:OverflowToolbar id="idFooter">
+                    <m:Button id="idMessageBtn" visible="{=!!${message>/}.length}" icon="{ path: '/', formatter: '.buttonIconFormatter' }" type="{ path: '/', formatter: '.buttonTypeFormatter' }" text= "{path: '/', formatter: '.highestSeverityMessages' }" press="onMessagePopoverPress" />
+                    <m:ToolbarSpacer/>
+                    <m:Button text="{i18n>footerDeleteBtn}" icon="sap-icon://delete" type="Ghost" press="onDeletePress"/>
+                    <m:Button text="{i18n>footerRefreshBtn}" icon="sap-icon://refresh" type="Ghost"/>
+                    <m:Button id="idEditBtn" text="{i18n>footerEditBtn}" icon="sap-icon://edit" type="Ghost" press="onEditPress" enabled="{detailView>/displayMode}"/>
+                    <m:Button id="idSaveBtn" text="{i18n>footerSaveBtn}" icon="sap-icon://save" type="Emphasized" press="onSavePress" enabled="{detailView>/editMode}"/>
+                    <m:Button text="{i18n>footerDistributeBtn}" icon="sap-icon://print" type="Emphasized"/>
+                    <m:Button text="{i18n>footerCancelBtn}" press=".onCancelPress"/>
+                </m:OverflowToolbar>
+            </footer>
+        </ObjectPageLayout>
+    </m:Page>
 </mvc:View>
 

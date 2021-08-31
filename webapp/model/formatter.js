@@ -75,6 +75,13 @@ sap.ui.define([], function () {
       return sTime;
     },
 
+      paramFormat: function (sParamID) {
+      if (sParamID === "") {
+        return "sap.ui.model.type.Date";
+           } 
+       return "";
+    },
+
 
   };
 
