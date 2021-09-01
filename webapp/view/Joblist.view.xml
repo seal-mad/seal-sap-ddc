@@ -127,7 +127,6 @@
                         </table:template>
                     </table:Column>
                 </table:columns>
-
             </table:Table>
         </semantic:content>
 

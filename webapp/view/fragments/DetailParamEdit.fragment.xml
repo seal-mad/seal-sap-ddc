@@ -1,0 +1,29 @@
+<core:FragmentDefinition 
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:ui="sap.ui.table">
+    <ui:Table id="idParameterList" width="100%" selectionMode="None" busyIndicatorDelay="{detailView>/itemsDelay}" rows="{path: 'ParameterSet'}" threshold="25" visibleRowCount="25"
+                                showNoData = "true" busy="{detailView>/itemsBusy}" enableBusyIndicator="true" ariaLabelledBy="title" showColumnVisibilityMenu="true">
+        <ui:extension>
+            <m:OverflowToolbar height="2.5em">
+                <m:Title id="linePatemeterTitle" text="{detailView>/paramTitle}" titleStyle="Auto" level="H2"/>
+                <m:ToolbarSpacer />
+            </m:OverflowToolbar>
+        </ui:extension>
+        <ui:columns >
+            <ui:Column sortProperty="ParamDescr" filterProperty="ParamDescr" autoResizable="true" width="30%">
+                <m:Label text="{i18n>paramIDLabel}" />
+                <ui:template>
+                    <m:Text text="{ParamDescr}" wrapping="false" />
+                </ui:template>
+            </ui:Column>
+
+            <ui:Column autoResizable="true" width="70%">
+                <m:Label text="{i18n>paramValueLabel}" />
+                <ui:template>
+                    <m:Input id="paramValue" value="{Value}" showValueHelp="true" type="Text" valueHelpRequest="onParamValueHelpRequest" submit="onParamValueSubmit"/>
+                </ui:template>
+            </ui:Column>
+        </ui:columns>
+    </ui:Table>
+</core:FragmentDefinition>

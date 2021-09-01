@@ -1,7 +1,7 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.uxap"
     xmlns:ui="sap.ui.table"
-    xmlns:uil="sap.ui.core"
+    xmlns:core="sap.ui.core"
     xmlns:layout="sap.ui.layout"
     xmlns:m="sap.m"
     xmlns:semantic="sap.f.semantic"
@@ -62,10 +62,9 @@
                 <ObjectPageSection titleUppercase="false" title="{i18n>tabObjectsList}">
                     <subSections>
                         <ObjectPageSubSection>
-                            <m:FlexBox id="flexBoxObjects" width="100%" alignItems="Start" alignContent="Stretch" >
+                            <m:FlexBox id="flexBoxObjects" width="100%" alignItems="Start" alignContent="Stretch">
                                 <ui:TreeTable id="idItemsList" selectionMode="MultiToggle" enableColumnReordering="false" enableSelectAll="true" busyIndicatorDelay="{detailView>/itemsDelay}" 
-                                showNoData = "true" busy="{detailView>/itemsBusy}" enableBusyIndicator="true" ariaLabelledBy="title" showColumnVisibilityMenu="true" threshold="25" visibleRowCount="25" 
-                                width="100%" rows="{
+                                showNoData = "true" busy="{detailView>/itemsBusy}" enableBusyIndicator="true" ariaLabelledBy="title" showColumnVisibilityMenu="true" threshold="25" visibleRowCount="25" width="100%" rows="{
                                         path: 'ObjectSet',
                                          parameters: {
                                               numberOfExpandedLevels: 0,
@@ -91,7 +90,7 @@
                                         </m:OverflowToolbar>
                                     </ui:extension>
                                     <ui:columns >
-                                        <ui:Column sortProperty="Objkey" filterProperty="Objkey" autoResizable="true" width="30%" >
+                                        <ui:Column sortProperty="Objkey" filterProperty="Objkey" autoResizable="true" width="30%">
                                             <m:Label text="{i18n>itemsDocumentKeyLabel}" />
                                             <ui:template>
                                                 <m:ObjectStatus text="{Objkey}" icon="{path:'IconName', formatter:'.formatter.iconObject'}"/>
@@ -112,7 +111,7 @@
                                             </ui:template>
                                         </ui:Column>
 
-                                        <ui:Column autoResizable="true" width="15%" >
+                                        <ui:Column autoResizable="true" width="15%">
                                             <m:Label text="{i18n>itemsDocumentDescrLabel}" />
                                             <ui:template>
                                                 <m:Text text="{ObjDescr}" wrapping="false" />
@@ -126,45 +125,16 @@
                                             </ui:template>
                                         </ui:Column>
 
-                                        <ui:Column autoResizable="true"  width="10%">
+                                        <ui:Column autoResizable="true" width="10%">
                                             <m:Label text="{i18n>itemsNoPrintSelLabel}" />
                                             <ui:template>
                                                 <m:Text text="{NoPrintSel}" wrapping="false" />
                                             </ui:template>
                                         </ui:Column>
                                     </ui:columns>
-
                                 </ui:TreeTable>
                             </m:FlexBox>
-                            <m:FlexBox id="flexBoxParameter" width="100%" alignItems="Start" alignContent="Stretch" >
-                                <ui:Table id="idParameterList" width="100%" selectionMode="None" busyIndicatorDelay="{detailView>/itemsDelay}" 
-                                rows="{path: 'ParameterSet', events: {change: '.onParamChange'} }" threshold="25" visibleRowCount="25"
-                                showNoData = "true" busy="{detailView>/itemsBusy}" enableBusyIndicator="true" ariaLabelledBy="title" showColumnVisibilityMenu="true" >
-                                    <ui:extension>
-                                        <m:OverflowToolbar height="2.5em">
-                                            <m:Title id="linePatemeterTitle" text="{detailView>/paramTitle}" titleStyle="Auto" level="H2"/>
-                                            <m:ToolbarSpacer />
-                                            <m:OverflowToolbarButton tooltip="Settings" icon="sap-icon://action-settings" />
-                                        </m:OverflowToolbar>
-                                    </ui:extension>
-                                    <ui:columns >
-                                        <ui:Column sortProperty="ParamDescr" filterProperty="ParamDescr" autoResizable="true" width="30%">
-                                            <m:Label text="{i18n>paramIDLabel}" />
-                                            <ui:template>
-                                                <m:Text text="{ParamDescr}" wrapping="false" />
-                                            </ui:template>
-                                        </ui:Column>
-
-                                        <ui:Column autoResizable="true"  width="70%">
-                                            <m:Label text="{i18n>paramValueLabel}" />
-                                            <ui:template>
-                                              <!--  <m:Text text="{ path: 'Value' }" 
-                                                wrapping="false" />-->
-                                                 <m:Input id="paramValue" value="{Value}" showValueHelp="true"  type="Text" valueHelpRequest="onParamValueHelpRequest" submit="onParamValueSubmit"/>
-                                            </ui:template>
-                                        </ui:Column>
-                                    </ui:columns>
-                                </ui:Table>
+                            <m:FlexBox id="flexBoxParameter" width="100%" alignItems="Start" alignContent="Stretch">
                             </m:FlexBox>
                         </ObjectPageSubSection>
                     </subSections>
